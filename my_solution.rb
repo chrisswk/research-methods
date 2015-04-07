@@ -5,7 +5,7 @@
 i_want_pets = ["I", "want", 3, "pets", "but", "only", "have", 2]
 my_family_pets_ages = {"Evi" => 6, "Hoobie" => 3, "George" => 12, "Bogart" => 4, "Poly" => 4, "Annabelle" => 0, "Ditto" => 3}
 
-# Person 1's solution
+# Person 1's solution: Brian
 
 # The method takes two arguments, 
 #  the array of words and the letter we're searching for
@@ -45,7 +45,7 @@ end
 # .include? - Searches a string for your argument. I used the letter argument.
 # .keys - Returns the keys of a hash as an array.
 
-# Person 2
+# Person 2: Carissa
 def my_array_modification_method!(source, thing_to_modify)
   source.dup # This line is here to make sure all tests initially fail. Delete it when you begin coding.
 end
@@ -60,7 +60,7 @@ end
 #
 
 
-# Person 3
+# Person 3: Chris
 def my_array_sorting_method(source)
   source # This line is here to make sure all tests initially fail. Delete it when you begin coding.
 end
@@ -75,7 +75,7 @@ end
 #
 
 
-# Person 4
+# Person 4: David
 def my_array_deletion_method!(source, thing_to_delete)
   source.dup # This line is here to make sure all tests initially fail. Delete it when you begin coding.
 end
@@ -90,7 +90,7 @@ end
 #
 
 
-# Person 5
+# Person 5: Ellis
 def my_array_splitting_method(source)
   source # This line is here to make sure all tests initially fail. Delete it when you begin coding.
 end
