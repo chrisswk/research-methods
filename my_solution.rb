@@ -92,11 +92,11 @@ end
 
 # Person 5: Ellis
 def my_array_splitting_method(source)
-  source # This line is here to make sure all tests initially fail. Delete it when you begin coding.
+  source.partition {|x| x.is_a? Integer}
 end
 
 def my_hash_splitting_method(source, age)
-  source # This line is here to make sure all tests initially fail. Delete it when you begin coding.
+  source.partition {|k,v| v <= 4}
 end
 
 # Identify and describe the Ruby method(s) you implemented.
