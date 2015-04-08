@@ -76,18 +76,31 @@ end
 
 
 # Person 4: David
+# We will first define a method that accepts two arguments: an array(source) and a letter to delete (thing_to_delete)
 def my_array_deletion_method!(source, thing_to_delete)
-  source.dup # This line is here to make sure all tests initially fail. Delete it when you begin coding.
+  #We then use the delete_if method, which searches through an array and deletes any objects that the block returns as true.
+  #Our block takes the array object, turns it into a string (.to_s) and uses the .include? method to ask if the array object includes "thing_to_delete" (as a string).
+  #This effectively runs, "if an array object includes a certain letter, delete that object from the array"
+  source.delete_if {|a| a.to_s.include?(thing_to_delete.to_s)}
+  #We now return the modified source array which no longer has the objects that included "thing_to_delete"
+  return source
 end
 
+# We will first define a method that accepts two arguments: a hash(source) and a string to delete (thing_to_delete)
 def my_hash_deletion_method!(source, thing_to_delete)
-  source.dup # This line is here to make sure all tests initially fail. Delete it when you begin coding.
+  #We then use the delete_if method (just like in the above aray method), which will search through the hash keys and delete any keys that the block returns as true.
+  #Our block takes the hash key, turns it into a string (.to_s) and uses the .include? method to ask if the hash key includes "thing_to_delete" (as a string).
+  #This effectively runs, "if a hash key includes "thing_to_delete", delete that key/value pair from the hash"
+  source.delete_if {|key, value| key.to_s.include?(thing_to_delete.to_s)}
+  #We now return the modified source hash which no longer has the key/value pair(s) that included "thing_to_delete"
+  return source
+
 end
 
 # Identify and describe the Ruby method(s) you implemented.
-#
-#
-#
+# .delete_if - deletes every element of the array or hash for which block evaluates to true.
+# .include? - Searches a string for your argument. I used the letter argument for the array and a string argument for the hash.
+# .to_s - converts the object into a string so that it can the .include? method can be invoked upon it.
 
 
 # Person 5: Ellis
