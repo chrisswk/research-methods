@@ -46,19 +46,59 @@ end
 # .keys - Returns the keys of a hash as an array.
 
 # Person 2: Carissa
-def my_array_modification_method!(source, thing_to_modify)
-  source.dup # This line is here to make sure all tests initially fail. Delete it when you begin coding.
+#pseudocode
+#input: an array & a number (to be added to all internal numbers)
+#output: altered array from input (destructive method)
+#method/process:
+#use the each iterator on the array
+#check if each element's class is an integer
+#if it's an integer, increment by the given number (end)
+#return array
+def my_array_modification_method!(array, incrementer)
+  array.each_with_index do |element,index|
+    if element.class == Fixnum
+      element += incrementer
+      array[index] = element
+    end
+  end
+  p array
+  return array
 end
 
-def my_hash_modification_method!(source, thing_to_modify)
-  source.dup # This line is here to make sure all tests initially fail. Delete it when you begin coding.
+
+#pseudocode
+#input: hash & the number of years that have passed
+#output: updated hash
+#method:
+#iterate over the hash with .each_pair & two block variables (key, value)
+#add years_passed to the value
+#reassign the value of the key to years_passed
+#return hash
+def my_hash_modification_method!(hash, years_passed)
+  hash.each_pair do |petname, age|
+    age += years_passed
+    hash[petname] = age
+  end
+  p hash
+  return hash
 end
+
 
 # Identify and describe the Ruby method(s) you implemented.
+#.each_with_index - this is an Enumerable method that can be used on both hashes and arrays.
+#The method is followed by a block with two block variables. With arrays, this is the element and the index. 
+#With hashes, the first is the key-value pair, in parentheses. The given arguments are then passed to the code block. 
+#The method, other than taking two variables, operates like .each. This can be useful when you want to use the index to 
+#replace or alter elements/pairs at certain indicies.
+#
+#.each_pair - this is an iterator that works like .each does for an array, but pulls out both the key and value, 
+#which become block variables. It then assigns each key & value to the block variables, and executes the code in the 
+#code block on them, before moving on to the next key-value pair.
+#
+#.class - this method returns the class of a certain object & can be used to test/determine if something belongs to the String
+#class, the Fixnum class, the Array class, etc.
 #
 #
-#
-
 # Person 3: Chris
 #Input: Array
 #Output: Sorted array.  From the README, I wasn't sure if the returned array should be
