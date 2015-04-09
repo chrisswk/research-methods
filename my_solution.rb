@@ -59,20 +59,93 @@ end
 #
 #
 
-
 # Person 3: Chris
+#Input: Array
+#Output: Sorted array.  From the README, I wasn't sure if the returned array should be
+#the array passed in the argument or if it should be a new array.  I ended up using the
+#array passed in the argument, so I guess this method is destructive.
 def my_array_sorting_method(source)
-  source # This line is here to make sure all tests initially fail. Delete it when you begin coding.
+  source.sort_by { |value| value.to_s }
 end
+#The most difficult thing here was identifying which method to use.
+#Array.sort returned a Fixnum exception when I ran the simplest version that I could
+#because 2 and 3 are integers, not strings, so they cannot be ordinally compared.
+#So I did some research and found http://ruby.bastardsbook.com/chapters/collections/
+#This resource suggested sort_by as an alternative to sort which allowed me to cast
+#integer array values into strings before being sorted.  So far this technique appeared to work.
+#I also got to integrate the evaluation of code as a block, which I learned while doing
+#the pair challenge with David.  Makes me feel kinda good to reuse things I learn!
+
+#  So, the array, source, invokes the sort_by method on itself.
+#  The sort_by method compares the value defined in the block or in this case line
+#  of code following the variable declaration in the vertical brackets.
+#  The method then returns a sorted array.
+#  Just for fun, I added an exclamation point to the method and it still worked, so
+#  I think even though the method definition syntax may be wrong because it doesn't
+#  include an exclamation mark, the array passed to the method is changed.
+#  Testing...
+# test_array = ["a", 1, "butter", "GOES ON SMOOOOOTH"]  Commented out so subsequent tests
+# puts my_array_sorting_method(test_array)              work well.
+# puts "Did the array change?"
+# puts test_array.inspect
+#Feel free to run the code but the array changes.  And when I delete the exclamation
+#mark the output changes.  See below.
+#Destructive output
+# 1
+# GOES ON SMOOOOOTH
+# a
+# butter
+# Did the array change?
+# [1, "GOES ON SMOOOOOTH", "a", "butter"]
+# 2
+# 3
+# I
+# but
+# have
+# only
+# pets
+# want
+# Non-destructive(constructive?) output
+# 1
+# GOES ON SMOOOOOTH
+# a
+# butter
+# Did the array change?
+# ["a", 1, "butter", "GOES ON SMOOOOOTH"]
+# 2
+# 3
+# I
+# but
+# have
+# only
+# pets
+# want
+# Ultimate lesson of this exercise?  Learn to use references and adapt them.
+
+#puts my_array_sorting_method(i_want_pets)  Commented out for your convenience.
+
+#Input: a hash
+#Output: Since the data in this method is arranged in an order, I believe I am supposed
+#to return an array...
+#Pseudo code:
+#  After defining the method and passing a hash to it, I initialize a new array
+#  Then I iterate through the hash, storing key and value to it
+#  Then I iterate through the array.
 
 def my_hash_sorting_method(source)
-   source # This line is here to make sure all tests initially fail. Delete it when you begin coding.
+   source.sort_by { |key, value| value }
 end
 
+#  This was another triumph of starting with my own approach then
+#  researching hashes and finding a superior alternative.  In this case I started off
+#  reading through the reading, then read through Bastards of Ruby's entry on Hashes
+#  then http://www.rubyinside.com/how-to/ruby-sort-hash.
+#  To complete my documentation I also used RubyDoc.
+ 
 # Identify and describe the Ruby method(s) you implemented.
-#
-#
-#
+#  Array.sort_by {|value_of_array| Sorts by the data type you convert values being sorted to} - Returns an array
+#  Object.to_s : Converts an object to a string(if possible?)
+#  Hash.sort_by { |key, value| Sorts by the reference, either key or value, that you specify}  Returns an array
 
 
 # Person 4: David
