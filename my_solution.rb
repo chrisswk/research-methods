@@ -217,6 +217,15 @@ end
 
 
 # Person 5: Ellis
+#If you have an array and want to split it into two arrays so that one array meets some criteria and the other array
+#is everything that doesn't meet the criteria use partition. This actually can be used on hashes also. So
+#what you do is take the array or hash, used the partition method on it, and then you need to set up the block, so 
+#declare the element and then put some code in. For example on my first example, I call partition on the array 
+#called source. Partition acts like each in the sense that it iterates through the list. For this example it asks
+#is x a member of the integer class? if so put it in the first array, if it isn't put it in the second array.
+#The same thing is happening with the hash, except partition is looking at the key and value of every element and
+#asking is value less than or equal to 4? if so put it into the first array and if it isn't put it into the other array. 
+#Last but not least partition returns the new array of arrrays/hashes. 
 def my_array_splitting_method(source)
   source.partition {|x| x.is_a? Integer}
 end
